@@ -23,3 +23,4 @@ helm install --name db --set postgresqlUsername=postgres,postgresqlPassword=post
 ```sh
 helm install --name=simple ./faq
 ```
+[Go back to master](https://github.com/ammbra/helm-faq/tree/master)
