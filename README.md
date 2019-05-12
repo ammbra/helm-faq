@@ -1,7 +1,7 @@
 # Intructions to Run this sample
 
 Prerequisites: 
-* Docker image pushed to a container registry.
+* Docker image built and pushed to a container registry.
 * If you are using a private container registry, please create a secret to pull that image, eg:
 
 ```sh
