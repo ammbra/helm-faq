@@ -1,0 +1,12 @@
+# Default values for faq application.
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+
+# Enabling postgres service, by default
+postgresql:
+  postgresqlDatabase: faq_demo
+  postgresUser: postgres
+  postgresqlPassword: postgres
+  persistence:
+    enabled: false

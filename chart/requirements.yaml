@@ -1,0 +1,12 @@
+dependencies:
+- name: postgresql
+  version: 4.0.0
+  repository: "https://kubernetes-charts.storage.googleapis.com/" 
+  condition: persistence.existingClaim
+  tags:
+  - db
+- name: faq
+  version: 0.1.1
+  repository: "file://charts/faq"
+  tags:
+  - faq

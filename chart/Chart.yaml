@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Helm Chart for FAQ application
+name: question-answer
+keywords:
+- kubernetes
+- faq
+- postgresql
+version: 0.1.1
+#sources:
+maintainers:
+- name: Ana Maria Mihalceanu
+  twitter: "@ammbra1508"

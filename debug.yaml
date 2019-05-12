@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: debug-admin
+spec:
+  parallelism: 1    
+  completions: 1   
+  template:         
+    metadata:
+      name: debug-admin
+    spec:
+      volumes:
+      - name: debug-scripts-volume
+        configMap:
+          name: simple-faq
+      containers:
+      - name: debug-job
+        image: alpine:3.7
+        volumeMounts:
+          - mountPath: /debug-scripts
+            name: debug-scripts-volume
+        env:
+          - name: HOME
+            value: /tmp
+        command:
+        - /bin/sh
+        - -c
+        - |
+          cp /debug-scripts/*.sh /tmp
+          chmod +x /tmp/*.sh
+          echo "execute debug.sh now"
+          /tmp/debug.sh
+      restartPolicy: Never
