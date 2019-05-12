@@ -23,4 +23,5 @@ helm dependency update
 helm install --name=master ./chart
 ```
 
+[Go back to master](https://github.com/ammbra/helm-faq/tree/master)
 
