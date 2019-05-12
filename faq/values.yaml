@@ -1,0 +1,30 @@
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+image: 
+  repository: image_repository_here
+  tag: 1
+  pullSecret: regsecret
+  
+logdna:
+  name: logdna-agent-key
+  agentKey: 123456whatever78key9here
+
+debug: >-
+  echo "Hello World"
+  
+postgresql:
+  server: db-postgresql
+  secretName: db-postgresql
+  secretKey:  postgresql-password
+
+replicaCount: 1
+
+service:
+   ports:
+      port: 8080
+      nodePort: 31295
+   type: NodePort
+   
+ingress:
+  enabled: false
