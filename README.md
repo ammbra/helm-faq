@@ -1,7 +1,7 @@
 # FAQ Helm demo
 
 Helm version used: 2.13.1.
-For details, take a look at:
+For installation and other details, please go to:
 	https://github.com/helm/helm
 
 ## Instructions
