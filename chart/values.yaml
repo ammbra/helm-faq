@@ -1,0 +1,13 @@
+# Default values for faq application.
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+
+# Enabling postgres service, by default
+postgresql:
+# Uncomment line below if db is deployed inside Kube
+  postgresqlDatabase: postgres_demo
+  postgresUser: postgres
+  postgresqlPassword: postgres
+  persistence:
+    enabled: false

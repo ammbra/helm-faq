@@ -1,0 +1,37 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "faq.fullname" . }}
+  labels:
+{{ include "faq.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "faq.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "faq.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecret }}
+      containers:
+        - name: result
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{default "Always" .Values.image.pullPolicy}}
+          ports:
+            - containerPort: {{ .Values.service.ports.port }}
+              name: http
+          env:
+            - name: POSTGRES_SERVER
+              value: {{ .Values.postgresql.server | default (printf "%s-postgresql" ( .Release.Name )) | quote }}
+            - name: POSTGRES_USERNAME
+              value: {{ default "postgres" .Values.postgresql.postgresUser | quote }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.secretName | default (printf "%s-postgresql" ( .Release.Name )) | quote }}
+                  key: {{ .Values.postgresql.secretKey }}

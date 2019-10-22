@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "faq.fullname" . }}
+  labels:
+{{ include "faq.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.ports.port }}
+      targetPort: {{ .Values.service.ports.port }}
+      nodePort: {{ .Values.service.ports.nodePort }}
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "faq.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

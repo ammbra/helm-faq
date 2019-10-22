@@ -1,17 +1,29 @@
-# FAQ Helm demo
+# Intructions to Run this sample
+Helm version used: 3.0.0 unreleased.
+Disclaimer: when this branch was pushed Helm3 was not unreleased, as depicted on the official website.
 
-For installation and other details, please go to:
-	https://github.com/helm/helm
+Prerequisites: 
+* Docker image built and pushed to a container registry.
+* If you are using a private container registry, please create a secret to pull that image, eg:
 
-## Instructions
+```sh
+kubectl create secret docker-registry regsecret --docker-server=<<docker_registry>> --docker-password=<<password>> --docker-username=iamapikey --docker-email=a@b.com
+```
 
-* Build the docker image and push it to a container registry.
-* Take a look to (Helm version used: 2.13.1):
 
-	1. [One chart per service approach branch](https://github.com/ammbra/helm-faq/tree/chart-per-svc)
-	2. [Master chart approach branch](https://github.com/ammbra/helm-faq/tree/master-chart)
-	
-	
-* [Master chart approach branch - helmv3](https://github.com/ammbra/helm-faq/tree/master-chart-helmv3)
+## Master chart approach
+* Go to /chart folder and run 
 
+```sh
+helm repo update
+helm dependency update
+```
+* Modify the faq chart values to have the correct docker image location (and valid pull secret).
+* Install the charts, eg:
+
+```sh
+helm install master ./chart
+```
+
+[Go back to master](https://github.com/ammbra/helm-faq/tree/master)
 
