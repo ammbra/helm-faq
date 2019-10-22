@@ -23,7 +23,7 @@ replicaCount: 1
 service:
    ports:
       port: 8080
-      nodePort: 31295
+      nodePort: 31296
    type: NodePort
    
 ingress:
