@@ -1,4 +1,5 @@
 # Intructions to Run this sample
+Helm version used: 2.13.1
 
 Prerequisites: 
 * Docker image built and pushed to a container registry.

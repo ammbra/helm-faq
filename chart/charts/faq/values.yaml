@@ -7,7 +7,7 @@ image:
   pullSecret: regsecret
   
 logdna:
-  name: logdna-agent-key
+  name: logdna-agent-key-master
   agentKey: 123456whatever78key9here
 
 debug: >-
@@ -36,4 +36,4 @@ serviceAccount:
   create: true
   # The name of the ServiceAccount to use.
   # If not set and create is true, a name is generated using the fullname template
-  name:
+  name: faq
