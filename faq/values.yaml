@@ -18,6 +18,22 @@ postgresql:
   secretName: db-postgresql
   secretKey:  postgresql-password
 
+readinessProbe:
+  name: /api/actuator/info
+  initialDelaySeconds: 40
+  timeoutSeconds: 2
+  periodSeconds: 3
+  failureThreshold: 1
+
+
+livenessProbe:
+  name: /api/actuator/health
+  initialDelaySeconds: 30
+  timeoutSeconds: 2
+  periodSeconds: 8
+  failureThreshold: 1
+
+
 replicaCount: 1
 
 service:
