@@ -20,6 +20,21 @@ postgresql:
 
 replicaCount: 1
 
+readinessProbe:
+  path: /api/actuator/info
+  initialDelaySeconds: 40
+  timeoutSeconds: 2
+  periodSeconds: 3
+  failureThreshold: 1
+
+
+livenessProbe:
+  path: /api/actuator/health
+  initialDelaySeconds: 30
+  timeoutSeconds: 2
+  periodSeconds: 8
+  failureThreshold: 1
+
 service:
   ports:
     port: 8080
