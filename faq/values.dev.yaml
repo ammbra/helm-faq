@@ -12,6 +12,9 @@ logdna:
 
 debug: >-
   echo "Hello World"
+
+test:
+  path: /api/questions
   
 postgresql:
   server: db-postgresql

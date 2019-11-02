@@ -18,6 +18,9 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "faq.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+      annotations:
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}

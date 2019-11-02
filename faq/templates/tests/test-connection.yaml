@@ -14,5 +14,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args:  ['{{ include "faq.fullname" . }}.{{ .Release.Namespace }}:{{ .Values.service.ports.port }}/api/questions']
+      args:  ['{{ include "faq.fullname" . }}.{{ .Release.Namespace }}:{{ .Values.service.ports.port }}{{ .Values.test.path}}']
   restartPolicy: Never
