@@ -15,7 +15,7 @@ debug: >-
   
 postgresql:
   #server: db-postgresql
-  #secretName: db-postgresql
+  postgresUser: postgres
   secretKey:  postgresql-password
 
 replicaCount: 1
