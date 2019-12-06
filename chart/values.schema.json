@@ -1,0 +1,74 @@
+{
+ "definitions": {},
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "http://example.com/root.json",
+ "type": "object",
+ "title": "The Root Schema",
+ "required": [
+  "postgresql"
+ ],
+ "properties": {
+  "postgresql": {
+   "$id": "#/properties/postgresql",
+   "type": "object",
+   "title": "The Postgresql Schema",
+   "required": [
+    "postgresqlDatabase",
+    "postgresUser",
+    "postgresqlPassword",
+    "persistence"
+   ],
+   "properties": {
+    "postgresqlDatabase": {
+     "$id": "#/properties/postgresql/properties/postgresqlDatabase",
+     "type": "string",
+     "title": "The Postgresqldatabase Schema",
+     "default": "",
+     "examples": [
+      "postgres_demo"
+     ],
+     "pattern": "^(.*)$"
+    },
+    "postgresUser": {
+     "$id": "#/properties/postgresql/properties/postgresUser",
+     "type": "string",
+     "title": "The Postgresuser Schema",
+     "default": "",
+     "examples": [
+      "postgres"
+     ],
+     "pattern": "^(.*)$"
+    },
+    "postgresqlPassword": {
+     "$id": "#/properties/postgresql/properties/postgresqlPassword",
+     "type": "string",
+     "title": "The Postgresqlpassword Schema",
+     "default": "",
+     "examples": [
+      "postgres"
+     ],
+     "pattern": "^(.*)$"
+    },
+    "persistence": {
+     "$id": "#/properties/postgresql/properties/persistence",
+     "type": "object",
+     "title": "The Persistence Schema",
+     "required": [
+      "enabled"
+     ],
+     "properties": {
+      "enabled": {
+       "$id": "#/properties/postgresql/properties/persistence/properties/enabled",
+       "type": "boolean",
+       "title": "The Enabled Schema",
+       "default": false,
+       "examples": [
+        false
+       ]
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{{- define "core.pv.tpl" -}}
+apiVersion: v1
+kind: PersistentVolume
+{{ template "core.metadata" . }}
+spec:
+  capacity:
+    storage: {{ .Values.storage}}
+  accessModes:
+    - {{ .Values.accessModes}}
+  hostPath:
+    path: {{ .Values.path}}
+{{- end -}}

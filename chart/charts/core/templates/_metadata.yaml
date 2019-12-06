@@ -1,0 +1,9 @@
+{{- define "core.metadata" -}}
+metadata:
+    name: {{ include "core.fullname" . }}
+    labels:
+        app.kubernetes.io/name: {{ include "core.name" . }}
+        helm.sh/chart: {{ include "core.chart" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}

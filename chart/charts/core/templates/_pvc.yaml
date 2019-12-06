@@ -1,0 +1,11 @@
+{{- define "core.pvc.tpl" -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+{{ template "core.metadata" . }}
+spec:
+  accessModes:
+    - {{ .Values.accessModes}}
+  resources:
+    requests:
+      storage: {{ .Values.storage}}
+{{- end -}}
