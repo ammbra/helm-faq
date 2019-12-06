@@ -1,6 +1,6 @@
 # Intructions to Run this sample
-Helm version used: 3.0.0 unreleased.
-Disclaimer: when this branch was pushed Helm3 was not unreleased, as depicted on the official website.
+Helm version used: 3.0.1.
+Disclaimer: when this branch was pushed Helm3 was not unreleased.
 
 Prerequisites: 
 * Docker image built and pushed to a container registry.
